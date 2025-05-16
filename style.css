@@ -64,6 +64,7 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  justify-content: center;
 }
 button:hover {
   background-color: #2c5282;
