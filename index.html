@@ -8,17 +8,19 @@
 </head>
 <body>
   <div class="container" id="notaArea">
+    
     <div class="header">
       <div>
         <h2>Alamsyah Tailor</h2>
-        <p><strong>Menerima Pesanan : <span></span></strong>
-        <br>Seragam Kantor, Seragam Sekolah, PDH<br>JAS, Safari, PDU, Pdlt, Blazer, DLL.</p>
-        <p>Jl.Pipa reja angkatan 66 palembang<br>Hp/Wa: 0858 9616 0566</p>
+      <strong>Menerima Pesanan :</strong>
+        <br>Seragam Kantor, Seragam Sekolah, PDH<br>JAS, Safari, PDU, Pdlt, Blazer, DLL.<br>
+      <small>Jl.Pipa reja angkatan 66 palembang<br>Hp/Wa: 0858 9616 0566</p></small>
       </div>
+
       <div>
         <p><strong>Palembang, <span id="tanggal"></span></strong></p>
         <p>Kepada: <input type="text" id="namaPelanggan" placeholder="Nama pelanggan"></p>
-        <p>No. Nota: <input type="text" id="noNota" placeholder=""></p>
+        <p>No. Nota: <input type="text" id="noNota" placeholder="Nomor Nota"></p>
         <p>Nomor WA: <input type="text" id="nomorWa" placeholder="WA Pelanggan"></p>
       </div>
     </div>
@@ -32,6 +34,7 @@
           <th>Jumlah</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <td><input type="number" min="1" value="1" onchange="hitung()"></td>
@@ -41,9 +44,9 @@
         </tr>
       </tbody>
     </table>
-
-    <button onclick="tambahBaris()">+ Tambah Baris</button>
-
+  
+    <button onclick="tambahBaris()">+ Tambah Keterangan</button>
+  
     <table class="totals">
       <tr>
         <td>Total:</td>
@@ -61,18 +64,19 @@
 
     <div class="info">
       <strong>Catatan:</strong><br>
-      <p>*Simpan Nota Digital ini Sebagai Bukti Pesanan.</p>
-      <p>*Pesanan yang tidak diambil selama tiga bulan jika rusak/hilang Kami tidak bertanggung jawab.</p>
+      <p>*Simpan Nota Digital ini Sebagai Bukti Pesanan.<br>
+         *Pesanan yang tidak diambil selama 3 bulan jika rusak/hilang Kami tidak bertanggung jawab.</p>
       
     </div>
   </div>
 
   <div class="buttons">
     <button onclick="simpanGambar()">Simpan Gambar</button>
-    <button onclick="kirimNota()">Kirim ke WA</button>
   </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
