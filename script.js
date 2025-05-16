@@ -28,8 +28,8 @@ function tambahBaris() {
   row.innerHTML = `
     <td><input type="number" min="1" value="1" onchange="hitung()"></td>
     <td><input type="text" placeholder="Isi keterangan" onchange="hitung()"></td>
-    <td><input type="number" value="0" onchange="hitung()"></td>
-    <td class="jumlah">0</td>
+    <td><input type="number" value="" onchange="hitung()"></td>
+    <td class="jumlah"></td>
   `;
   tbody.appendChild(row);
 }
@@ -38,49 +38,12 @@ function tambahBaris() {
 function simpanGambar() {
   html2canvas(document.getElementById("notaArea")).then(canvas => {
     const link = document.createElement("a");
-    link.download = "nota.png";
+    link.download = "nota Alamsyah Tailor.png";
     link.href = canvas.toDataURL();
     link.click();
   });
 }
 
-// Kirim ke WhatsApp
-function kirimNota() {
-  const tanggal = document.getElementById("tanggal").innerText;
-  const nama = document.getElementById("namaPelanggan").value || "-";
-  const noNota = document.getElementById("noNota").value || "-";
-  const nomorWa = document.getElementById("nomorWa").value.trim();
-
-  if (!nomorWa || !/^62\d{9,}$/.test(nomorWa)) {
-    alert("Masukkan nomor WA yang valid, dimulai dengan 08");
-    return;
-  }
-
-  const rows = document.querySelectorAll("#notaTable tbody tr");
-  let pesan = `*Nota Alamsyah Tailor*\n`;
-  pesan += `Tanggal: ${tanggal}\n`;
-  pesan += `Nama: ${nama}\n`;
-  pesan += `No. Nota: ${noNota}\n\n`;
-  pesan += `*Rincian:*\n`;
-
-  rows.forEach(row => {
-    const qty = row.cells[0].querySelector("input").value || 0;
-    const ket = row.cells[1].querySelector("input").value || "-";
-    const harga = row.cells[2].querySelector("input").value || 0;
-    const jumlah = row.cells[3].innerText || 0;
-    pesan += `- ${qty}x ${ket} @${harga} = ${jumlah}\n`;
-  });
-
-  const total = document.getElementById("total").value;
-  const dp = document.getElementById("dp").value;
-  const sisa = document.getElementById("sisa").value;
-
-  pesan += `\nTotal: Rp${total}\nDP: Rp${dp}\nSisa: Rp${sisa}`;
-  pesan += `\n\nTerima kasih atas kepercayaan anda.`;
-
-  const url = `https://wa.me/${nomorWa}?text=${encodeURIComponent(pesan)}`;
-  window.open(url, "_blank");
-}
 
 // Hitung saat pertama kali dibuka
 hitung();
